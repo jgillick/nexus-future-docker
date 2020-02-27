@@ -1,0 +1,22 @@
+version: "3"
+services:
+  nexus:
+    build: .
+    command: npm run dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/code
+      - /code/node_modules
+    depends_on:
+      - db
+    # Server will not start without tty
+    tty: true
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: open-ostrich
+      MYSQL_ROOT_PASSWORD: password

@@ -1,2 +1,2 @@
-# nexus-future-docker
-Demo of running nexus-future in a docker container
+# Nexus-Future in Docker
+A simple demo running the nexus-future Hello World app in a docker container.

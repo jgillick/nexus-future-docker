@@ -1,0 +1,21 @@
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:password@localhost:3306/open-ostrich"
+}
+
+generator prisma_client {
+  provider = "prisma-client-js"
+}
+
+model World {
+  id         Int    @id @default(autoincrement())
+  name       String @unique
+  population Float
+  moons      Moon[]
+}
+
+model Moon {
+   id    Int    @id
+   name  String
+   world World
+}
